@@ -1,18 +1,22 @@
-import logo from "./logo.svg";
+import React from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
-
+import User from "./components/User";
+import "./components/Searchbar.css"
+import Searchbar from "./components/Searchbar";
+import Messages from "./components/Messages";
 
 
 function App() {
   return (
-      <div className="container">
-      <div className = "navbar">
-        <div className = "searchbar">
-      <i className="fa-solid fa-magnifying-glass"></i></div>
+    <div className="container">
+      <div className="navbar">
+        <Searchbar/>
+        <User/>
       </div>
-      <div className = "main">
-        <div className = "mainLeft"></div>
-        <div className = "mainRight"></div>
+      <div className="main">
+        <div className="mainLeft"></div>
+        <div className="mainRight"></div>
       </div>
     </div>
   );

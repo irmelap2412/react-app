@@ -58,20 +58,6 @@
   border-radius: 2rem;
 }
 
-.searchbar{
-  width: 30%; /* Širina searchbar-a */
-  display: flex;
-  align-items: center; /* Vertikalno centriranje unutar searchbar-a */
-  background-color: black;
-  color: #fff;
-  height: 80%; /* Visina searchbar-a */
-  border-radius: 2rem;
-  margin-left: 2%; /* Razmak od leve strane navbara */
-  padding: 0 10px; /* Unutrašnji razmak za sadržaj */
-
-}
-
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -115,3 +101,4 @@
   height: 90%;
   border-radius: 20px;
 }
+
