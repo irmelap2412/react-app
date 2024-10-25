@@ -1,34 +1,33 @@
-.message {
-    display: flex;
-    align-items: center;
-    color: #fff;
-    margin-right: 1rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    transition: background-color 0.2s ease;
-  }
-  
-  .message:hover, .message:focus {
-    background-color: rgba(255, 255, 255, 0.1);
-    outline: none;
-  }
-  
-  .message svg {
-    margin-right: 0.5rem;
-  }
-  
-  .message-text {
-    font-size: 0.875rem;
-    font-weight: 500;
-  }
-  
-  @media (max-width: 768px) {
-    .message-text {
-      display: none;
-    }
-  
-    .message svg {
-      margin-right: 0;
-    }
-  }
+.messages {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  margin-right: 1rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s ease;
+  position: relative; 
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%; 
+  right: 0;
+  background-color: #ccc9c9;
+  padding: 0.5rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+ }
+
+.dropdown p {
+  margin: 0;
+  padding: 0.5rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.dropdown p:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
