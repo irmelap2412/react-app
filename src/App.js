@@ -7,9 +7,9 @@ import Messages from "./components/Messages";
 import Leftsidebar from "./components/Leftsidebar";
 import Rightsidebar from "./components/Rightsidebar";
 import Friendactivity from "./components/Friendactivity"; // Ensure you import all components
-import Matches from "./components/Matches"; // Import other components as needed
+import Friends from "./components/Friends"; // Import other components as needed
 //import Notifications from "./components/Notifications";
-import Saved from "./components/Saved";
+//import Saved from "./components/Saved";
 //import Settings from "./components/Settings";
 
 function App() {
@@ -17,10 +17,8 @@ function App() {
 
   const renderComponent = () => {
     switch (activeComponent) {
-      case "Matches":
-        return <Matches />;
-      case "Saved":
-        return <Saved/>;
+      case "Friends":
+        return <Friends />;
       default:
         return <Friendactivity />;
     }
