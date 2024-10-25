@@ -5,6 +5,7 @@ import "./components/Searchbar.css"
 import Searchbar from "./components/Searchbar";
 import Messages from "./components/Messages";
 import Leftsidebar from "./components/Leftsidebar"
+import Rightsidebar from "./components/Rightsidebar";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
       </div>
       <div className="main">
         <div className="mainLeft"><Leftsidebar/></div>
-        <div className="mainRight"></div>
+        <div className="mainRight"><Rightsidebar/></div>
       </div>
     </div>
   );
