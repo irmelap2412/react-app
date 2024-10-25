@@ -29,8 +29,9 @@ function App() {
       <div className="navbar">
         <Searchbar />
         <div className="rightNavbar">
-          <User />
-          <Messages />
+           <Messages /> 
+           <User />
+        
         </div>
       </div>
       <div className="main">
