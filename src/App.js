@@ -12,7 +12,10 @@ function App() {
     <div className="container">
       <div className="navbar">
         <Searchbar/>
+        <div className="rightNavbar">
+        <Messages/>
         <User/>
+        </div>
       </div>
       <div className="main">
         <div className="mainLeft"></div>

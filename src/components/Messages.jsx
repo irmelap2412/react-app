@@ -1,12 +1,15 @@
-import React from 'react';
-import { MessageCircle } from 'lucide-react';
-import './Messages.css';
+import React from "react";
+import "./Messages.css";
 
-export default function Messages() {
+function Messages() {
   return (
-    <div className="message" role="button" tabIndex={0} aria-label="Open messages">
-      <MessageCircle size={20} aria-hidden="true" />
-      <span className="message-text">Messages</span>
+    <div className="messages">
+      <i className="fa-solid fa-envelope"></i> {/* Message icon */}
+      <span></span> {/* Text for messages */}
+    <div>
+    </div>
     </div>
   );
 }
+
+export default Messages;
