@@ -28,6 +28,50 @@
   color: #61dafb;
 }
 
+.container {
+  width: 100%;
+  height: 100vh;
+  background-image: url("dating_app_background.jpg"); /* Path to your image */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  z-index: 100; /* Osigurava da navbar ostane iznad drugih elemenata */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  color: #fff;
+  width: 90%;
+  height: 7%;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 2rem;
+}
+
+.searchbar{
+  width: 30%; /* Širina searchbar-a */
+  display: flex;
+  align-items: center; /* Vertikalno centriranje unutar searchbar-a */
+  background-color: black;
+  color: #fff;
+  height: 80%; /* Visina searchbar-a */
+  border-radius: 2rem;
+  margin-left: 2%; /* Razmak od leve strane navbara */
+  padding: 0 10px; /* Unutrašnji razmak za sadržaj */
+
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -35,4 +79,39 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.main{
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 75%;
+  width: 92%;
+  background-color: gray;
+  flex-direction: row;
+  border-radius: 20px;
+
+}
+
+.mainLeft{
+  
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 0.5rem;
+  border-radius: 8px;
+  width: 30%;
+  height: 90%;
+  border-radius: 20px;
+}
+
+.mainRight{
+  
+  padding: 1rem;
+  background-color: black;
+  margin: 0.5rem;
+  border-radius: 8px;
+  width: 70%;
+  height: 90%;
+  border-radius: 20px;
 }
