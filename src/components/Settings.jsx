@@ -51,18 +51,18 @@ const Settings = () => {
       </div>
 
       <div className="settings-section">
-        <h3>Account</h3>
+        Account
         <button className="settings-button">Change Password</button>
         <button className="settings-button">Update Email</button>
       </div>
 
       <div className="settings-section">
-        <h3>Privacy</h3>
+        Privacy
         <button className="settings-button">Manage Privacy Settings</button>
       </div>
 
       <div className="settings-section">
-        <h3>Help & Support</h3>
+        Help & Support
         <button className="settings-button">Contact Support</button>
         <button className="settings-button">FAQs</button>
       </div>
