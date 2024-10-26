@@ -1,0 +1,45 @@
+.notifications {
+  width: 95%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.notifications-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.notifications-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.notification {
+  background-color: rgba(255, 48, 121,0.1);
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.notification-content {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.notification-action-link {
+  color: rgb(255, 48, 121);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+
+
+.notification-action-link:hover,
+.notification-action-link:focus {
+  color: rgb(255, 48, 121);
+  text-decoration: underline;
+}
