@@ -6,6 +6,7 @@ import Searchbar from "./components/Searchbar";
 import Messages from "./components/Messages";
 import Leftsidebar from "./components/Leftsidebar"
 import Rightsidebar from "./components/Rightsidebar";
+import Matches from "./components/Matches";
 
 function App() {
   return (
