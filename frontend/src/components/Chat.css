@@ -1,0 +1,4 @@
+.chat-container {
+  display: flex;
+  max-height: 70vh;
+}
