@@ -9,33 +9,23 @@ const Settings = () => {
   return (
     <div className="settings">
       <h2 className="settings-title">Settings</h2>
-      
+      <div className = "elements">
       <div className="settings-section">
-        <h3>Notifications</h3>
+      <h3>Notifications: {notifications ? 'On' : 'Off'}</h3>
         <label className="switch">
-          <input
-            type="checkbox"
-            checked={notifications}
-            onChange={() => setNotifications(!notifications)}
-          />
+          <input type="checkbox" checked={notifications} onChange={() => setNotifications(!notifications)}/>
           <span className="slider round"></span>
         </label>
-        <p>Receive notifications: {notifications ? 'On' : 'Off'}</p>
       </div>
 
       <div className="settings-section">
         <h3>Font Size</h3>
-        <select
-          value={fontSize}
-          onChange={(e) => setFontSize(e.target.value)}
-          className="select-input"
-        >
+        <select value={fontSize}onChange={(e) => setFontSize(e.target.value)}className="select-input">
           <option value="small">Small</option>
           <option value="medium">Medium</option>
           <option value="large">Large</option>
         </select>
       </div>
-
       <div className="settings-section">
         <h3>Language</h3>
         <select
@@ -49,22 +39,6 @@ const Settings = () => {
           <option value="german">Deutsch</option>
         </select>
       </div>
-
-      <div className="settings-section">
-        Account
-        <button className="settings-button">Change Password</button>
-        <button className="settings-button">Update Email</button>
-      </div>
-
-      <div className="settings-section">
-        Privacy
-        <button className="settings-button">Manage Privacy Settings</button>
-      </div>
-
-      <div className="settings-section">
-        Help & Support
-        <button className="settings-button">Contact Support</button>
-        <button className="settings-button">FAQs</button>
       </div>
     </div>
   );
