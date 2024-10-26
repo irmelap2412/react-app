@@ -1,36 +1,34 @@
 import React, { useState } from "react";
 import './SignIn.css';
 
-
-
-function SignIn({ onSignIn }) {
+export default function Component({ onSignIn }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMessage('');
 
-    fetch('http://localhost:3000/api/signin', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Invalid email or password');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        onSignIn(data.user); // Call the onSignIn function with user data
-      })
-      .catch((error) => {
-        setErrorMessage(error.message);
+    try {
+      const response = await fetch('http://localhost:3000/api/signin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
       });
-    
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Sign-in failed');
+      }
+
+      onSignIn(data.user);
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
   };
 
   return (
@@ -63,5 +61,3 @@ function SignIn({ onSignIn }) {
     </div>
   );
 }
-
-export default SignIn;

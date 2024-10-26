@@ -1,4 +1,4 @@
-import React, {useEffect, useState, setUsers} from "react";
+import React, {useEffect, useState, setUsers, setError} from "react";
 import "./App.css";
 import User from "./components/User";
 import Searchbar from "./components/Searchbar";
@@ -14,21 +14,33 @@ import SignIn from "./components/SignIn";
 import Chat from "./components/Chat";
 
 
+
 function App() {
   const [activeComponent, setActiveComponent] = useState('Friendactivity');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState(null);
+  
   const handleSignIn = (email) => {
     setUser({ email });
     setIsLoggedIn(true);
   };
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/users')
-      .then(response => response.json())
-      .then(data => setUsers(data))
-      .catch(error => console.error('Error fetching data:', error));
-  }, []);
+    if (isLoggedIn) {
+      fetch('http://localhost:3000/api/users')
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => setUsers(data))
+        .catch(error => {
+          console.error('Error fetching data:', error);
+          setError(error.message);
+        });
+    }
+  }, [isLoggedIn]);
 
   const handleLogout = () => {
     setIsLoggedIn(false);
