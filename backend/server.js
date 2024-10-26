@@ -12,10 +12,10 @@ app.use(bodyParser.json());
 
 // MySQL Database Connection
 const db = mysql.createConnection({
-    host: 'localhost',         // Your MySQL host
-    user: 'root',     // Your MySQL username
-    password: 'teapot', // Your MySQL password
-    database: 'teapot', // Your MySQL database name
+    host: 'localhost',
+    user: 'root',
+    password: 'teapot',
+    database: 'teapot',
 });
 
 db.connect((err) => {
@@ -26,48 +26,43 @@ db.connect((err) => {
     console.log('Connected to MySQL database!');
 });
 
-// Define a simple route
 app.get('/api/users', (req, res) => {
-    const query = 'SELECT *FROM users';
+    const query = 'SELECT * FROM teapot';
     db.query(query, (err, results) => {
         if (err) {
             console.error('Error querying the database:', err);
             return res.status(500).json({ message: 'Server error' });
         }
-        res.status(200).json(results); // Send users data as JSON
+        res.status(200).json(results);
     });
-});
-
-// Start the server
-app.listen(port, () => {
-    console.log(`Server is running at http://localhost:${port}`);
 });
 
 // Sign-in route
 app.post('/api/signin', (req, res) => {
     const { email, password } = req.body;
-    console.log("App post initialized.");
+    console.log("Sign-in attempt:", email);
 
-    // Check if email and password are provided
     if (!email || !password) {
         return res.status(400).json({ message: 'Email and password are required' });
     }
 
-    // Query to find the user
-    const query = 'SELECT * FROM users WHERE email = ? AND pass = ?';
+    const query = 'SELECT * FROM teapot WHERE email = ? AND pass = ?';
     db.query(query, [email, password], (err, results) => {
         if (err) {
             console.error('Error querying database:', err);
-            return res.status(500).json({ message: 'Server error' });
+            return res.status(500).json({ message: 'Server error ' + err });
         }
 
-        // Check if user exists
         if (results.length > 0) {
-            // Successful sign-in
+            console.log("Sign-in successful for:", email);
             res.status(200).json({ message: 'Sign-in successful', user: results[0] });
         } else {
-            // User not found or password doesn't match
+            console.log("Sign-in failed for:", email);
             res.status(401).json({ message: 'Invalid email or password' });
         }
     });
+});
+
+app.listen(port, () => {
+    console.log(`Server is running at http://localhost:${port}`);
 });
