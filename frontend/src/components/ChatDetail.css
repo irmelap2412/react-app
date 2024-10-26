@@ -45,7 +45,6 @@
   display: flex;
   flex-direction: column;
   height: 500px; /* Set a fixed height or use a percentage */
-  border: 1px solid #e0e0e0;
   border-radius: 8px;
   width: 100%;
 }
@@ -55,7 +54,7 @@
   align-items: center;
   padding: 15px;
   border-bottom: 1px solid #e0e0e0;
-  background-color: #f0f2f5;
+  background-color: rgba(255,255,255,0.3);
 }
 
 .chat-header .chat-avatar {
@@ -87,7 +86,7 @@
 }
 
 .message.user {
-  background-color: #0084ff;
+  background-color: #ff64a5;
   color: white;
   align-self: flex-end;
 }
@@ -100,7 +99,7 @@
 .message-form {
   display: flex;
   padding: 15px;
-  background-color: #f0f2f5;
+  background-color: transparent;
   border-top: 1px solid #e0e0e0;
 }
 
@@ -109,13 +108,23 @@
   padding: 10px 15px;
   border: none;
   border-radius: 20px;
-  background-color: white;
+  background-color: rgba(243, 157, 192, 0.468);
+  font-size: 14px;
+}
+
+.message-input:click {
+  flex-grow: 1;
+  padding: 10px 15px;
+  border: 0.2px;
+  border-color: #ff64a5;
+  border-radius: 20px;
+  background-color: rgba(243, 157, 192, 0.468);
   font-size: 14px;
 }
 
 .send-button {
   padding: 10px 15px;
-  background-color: #0084ff;
+  background-color: #ff64a5;
   color: white;
   border: none;
   border-radius: 20px;
@@ -126,5 +135,5 @@
 }
 
 .send-button:hover {
-  background-color: #0073e6;
+  background-color: #fb8cba;
 }
