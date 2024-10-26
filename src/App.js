@@ -8,9 +8,9 @@ import Leftsidebar from "./components/Leftsidebar";
 import Rightsidebar from "./components/Rightsidebar";
 import Friendactivity from "./components/Friendactivity"; // Ensure you import all components
 import Matches from "./components/Matches"; // Import other components as needed
-//import Notifications from "./components/Notifications";
+import Notifications from "./components/Notifications";
 import Saved from "./components/Saved";
-//import Settings from "./components/Settings";
+import Settings from "./components/Settings";
 
 function App() {
   const [activeComponent, setActiveComponent] = useState('Friendactivity');
@@ -21,6 +21,10 @@ function App() {
         return <Matches />;
       case "Saved":
         return <Saved />
+      case "Notifications":
+        return <Notifications />;
+      case "Settings":
+        return <Settings />;
       default:
         return <Friendactivity />;
     }
