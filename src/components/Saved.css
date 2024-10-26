@@ -23,7 +23,15 @@
     border-radius: 0.5rem;
     transition: background-color 0.2s ease;
     cursor: pointer;
+    justify-content: space-between;
   }
+
+
+.match-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
   
   .match-item:hover {
     background-color: rgba(251, 111, 146, 0.1);
@@ -39,5 +47,20 @@
   .match-name {
     font-size: 1rem;
     font-weight: 500;
+  }
+  
+  .remove-favourite-btn {
+    background-color: transparent;
+    color: #FB6F92;
+    border: none;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  .left-sub-cont{
+    display: flex;
+    align-items: center; /* Vertically aligns the avatar and name */
+    gap: 0.5rem; /* Space between avatar and name */
   }
   
