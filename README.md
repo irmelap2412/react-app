@@ -1,3 +1,7 @@
+# Open project 
+Once you navigate to frontend folder, you need to do npm start.
+For this you need npm 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
