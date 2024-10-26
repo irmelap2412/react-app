@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Leftsidebar.css';
 
-export function Leftsidebar({ setActiveComponent, activeComponent }) {
+export function Leftsidebar({ setActiveComponent, activeComponent, onLogout }) {
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
+
+  const handleLogout = () => {
+    setShowLogoutModal(false);
+    onLogout();
+  };
+
   return (
     <div className="sidebar">
       <div className="sidebar-content">
@@ -24,9 +31,9 @@ export function Leftsidebar({ setActiveComponent, activeComponent }) {
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="nav-icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             Matches
           </button>
-          <button className={`nav-item ${activeComponent === 'Messages' ? 'active' : ''}`} onClick={() => setActiveComponent('Messages')}>
+          <button className={`nav-item ${activeComponent === 'Chat' ? 'active' : ''}`} onClick={() => setActiveComponent('Chat')}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="nav-icon"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-            Messages
+            Chats
           </button>
           <button className={`nav-item ${activeComponent === 'Notifications' ? 'active' : ''}`} onClick={() => setActiveComponent('Notifications')}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="nav-icon"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
@@ -43,14 +50,25 @@ export function Leftsidebar({ setActiveComponent, activeComponent }) {
         </nav>
       </div>
       <div className="sidebar-footer">
-        <button className="logout-button">
+        <button className="logout-button" onClick={() => setShowLogoutModal(true)}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="nav-icon"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
           Log out
         </button>
       </div>
+      {showLogoutModal && (
+        <div className="modal-overlay">
+          <div className="modal-content" role="dialog" aria-labelledby="logout-modal-title">
+            <h2 id="logout-modal-title">Confirm Logout</h2>
+            <p>Are you sure you want to log out?</p>
+            <div className="modal-actions">
+              <button onClick={() => setShowLogoutModal(false)}>Cancel</button>
+              <button onClick={handleLogout}>Yes, Log out</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
-
 
 export default Leftsidebar;
