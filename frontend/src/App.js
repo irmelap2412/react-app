@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState, setUsers} from "react";
 import "./App.css";
 import User from "./components/User";
 import Searchbar from "./components/Searchbar";
@@ -13,15 +13,22 @@ import Settings from "./components/Settings";
 import SignIn from "./components/SignIn";
 import Chat from "./components/Chat";
 
+
 function App() {
   const [activeComponent, setActiveComponent] = useState('Friendactivity');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState(null);
-
+  const [user, setUser] = useState([]);
   const handleSignIn = (email) => {
     setUser({ email });
     setIsLoggedIn(true);
   };
+
+  useEffect(() => {
+    fetch('http://localhost:3000/api/users')
+      .then(response => response.json())
+      .then(data => setUsers(data))
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
 
   const handleLogout = () => {
     setIsLoggedIn(false);
@@ -48,6 +55,8 @@ function App() {
   if (!isLoggedIn) {
     return <SignIn onSignIn={handleSignIn} />;
   }
+
+ 
 
   return (
     <div className="container">

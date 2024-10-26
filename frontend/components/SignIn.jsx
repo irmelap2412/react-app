@@ -1,43 +1,21 @@
 import React, { useState } from "react";
 import './SignIn.css';
 
-
-
 function SignIn({ onSignIn }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    fetch('http://localhost:3000/api/signin', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Invalid email or password');
-        }
-        return response.json();
-      })
-      .then((data) => {
-        onSignIn(data.user); // Call the onSignIn function with user data
-      })
-      .catch((error) => {
-        setErrorMessage(error.message);
-      });
-    
+    // Here you would typically validate the input and make an API call
+    // For this example, we'll just call onSignIn with the email
+    onSignIn(email);
   };
 
   return (
     <div className="sign-in-container">
       <form className="sign-in-form" onSubmit={handleSubmit}>
         <h2>Sign In</h2>
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <div className="form-group">
           <label htmlFor="email">Email:</label>
           <input
