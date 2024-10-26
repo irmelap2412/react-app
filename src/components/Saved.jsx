@@ -15,8 +15,10 @@ const Saved = () => {
       <div className="matches-list">
         {matches.map(match => (
           <div key={match.id} className="match-item">
+            <div className = "left-sub-cont">
             <img src={match.avatar} alt={match.name} className="match-avatar" />
-            <p className="match-name">{match.name}</p>
+            <p className="match-name">{match.name}</p></div>
+            <button className = "remove-favourite-btn">X</button>
           </div>
         ))}
       </div>
