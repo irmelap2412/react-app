@@ -2,8 +2,8 @@
   width: 30%; /* Širina searchbar-a */
   display: flex;
   align-items: center; /* Vertikalno centriranje unutar searchbar-a */
-  background-color: rgba(251, 111, 146, 255);
-  color: whitesmoke;
+  background-color: rgb(256,172,188);
+  color: inherit;
   height: 80%; /* Visina searchbar-a */
   border-radius: 2rem;
   margin-left: 2%; /* Razmak od leve strane navbara */
@@ -14,8 +14,8 @@
   width: 80%; /* Širina searchbar-a */
   display: flex;
   align-items: center; /* Vertikalno centriranje unutar searchbar-a */
-  background-color: rgba(251, 111, 146, 255);
-  color: white;
+  background-color: rgb(256,172,188);
+  color: #333;
   height: 80%; /* Visina searchbar-a */
   border-radius: 2rem;
   margin-left: 2%; /* Razmak od leve strane navbara */
@@ -24,8 +24,12 @@
   font-weight: bold;
 }
 
+.searchbar i{
+  color:#333;
+}
+
 .searchbar input::placeholder {
-  color: whitesmoke;
+  color: #333;
   font-weight:normal;
 }
 
