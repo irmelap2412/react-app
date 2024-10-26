@@ -1,0 +1,44 @@
+.searchbar {
+  width: 30%; /* Širina searchbar-a */
+  display: flex;
+  align-items: center; /* Vertikalno centriranje unutar searchbar-a */
+  background-color: rgb(256,172,188);
+  color: inherit;
+  height: 80%; /* Visina searchbar-a */
+  border-radius: 2rem;
+  margin-left: 2%; /* Razmak od leve strane navbara */
+  padding: 0 10px; /* Unutrašnji razmak za sadržaj */
+}
+
+.searchbar input {
+  width: 80%; /* Širina searchbar-a */
+  display: flex;
+  align-items: center; /* Vertikalno centriranje unutar searchbar-a */
+  background-color: rgb(256,172,188);
+  color: #333;
+  height: 80%; /* Visina searchbar-a */
+  border-radius: 2rem;
+  margin-left: 2%; /* Razmak od leve strane navbara */
+  padding: 0 10px; /* Unutrašnji razmak za sadržaj */
+  border: none;
+  font-weight: bold;
+}
+
+.searchbar i{
+  color:#333;
+}
+
+.searchbar input::placeholder {
+  color: #333;
+  font-weight:normal;
+}
+
+.searchbar input:focus {
+  outline: none; /* Remove default outline */
+  border: none; /* Ensures no border appears */
+  box-shadow: none; /* Remove any shadow if present */
+}
+
+#searchbtn {
+  cursor: pointer;
+}
